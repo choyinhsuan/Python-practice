@@ -1,0 +1,18 @@
+name = input("Enter file:")
+if len(name) < 1:
+    name = "mbox-short.txt"
+handle = open(name)
+
+dic = dict()
+for line in handle:
+    if line.startswith('From '):
+        words = line.split()
+        dic[words[1]] = dic.get(words[1], 0)+1
+
+maxv = None
+maxk = None
+for people,fre in dic.items():
+    if maxv is None or fre>maxv:
+        maxv = fre
+        maxk = people
+print(maxk, maxv)
