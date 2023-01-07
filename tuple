@@ -1,0 +1,22 @@
+name = input("Enter file:")
+if len(name) < 1:
+    name = "mbox-short.txt"
+handle = open(name)
+
+dic = dict()
+for line in handle:
+    if line.startswith('From '):
+        words = line.split()
+        time = words[5].split(':')
+        day = time[0]
+        dic[day] = dic.get(day, 0)+1
+        
+lst = list()
+for day,fre in dic.items():
+    newtup = (day, fre)
+    lst.append(newtup)
+
+lst = sorted(lst)
+
+for d,f in lst[0:]:
+    print(d, f)
