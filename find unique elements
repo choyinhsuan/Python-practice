@@ -1,0 +1,11 @@
+def checkio(data: list) -> list:
+    # your code here
+    dic = dict()
+    for num in data:
+        dic[num] = dic.get(num, 0)+1
+    for key, value in dic.items():
+        if value == 1:
+            data.remove(key)
+    return data
+data = input()
+print(checkio(data))
