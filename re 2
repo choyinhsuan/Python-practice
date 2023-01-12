@@ -1,0 +1,15 @@
+import re
+def sum_numbers(text: str) -> int:
+    # your code here
+    lis = re.findall('\s[0-9]+\s|\A\d|\d$', text)
+    if len(lis) == 0:
+        lis
+    sum = 0
+    for num in lis:
+        tmp = int(num)
+        sum = sum+tmp
+    return sum
+
+
+text = input()
+print(sum_numbers(text))
