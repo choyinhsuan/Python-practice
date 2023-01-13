@@ -1,0 +1,32 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+def birthday(s, d, m):
+    # Write your code here
+    cut = sum(s[0:m])
+    print(cut)
+    if cut == d:
+        count = 1
+    else:
+        count = 0
+    index = m
+    while index < len(s):
+        cut = cut+s[index]
+        cut = cut-s[index-m]
+        if cut == d:
+            count = count+1
+        index = index+1
+    return count
+    
+n = int(input().strip())
+s = list(map(int, input().rstrip().split()))
+first_multiple_input = input().rstrip().split()
+d = int(first_multiple_input[0])
+m = int(first_multiple_input[1])
+result = birthday(s, d, m)
+print(result)
