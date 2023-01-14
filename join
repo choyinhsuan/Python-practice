@@ -1,0 +1,4 @@
+def left_join(phrases: tuple) -> str:
+    string = ','.join(phrases)
+    ans = string.replace('right', 'left')
+    return ans
