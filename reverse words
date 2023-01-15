@@ -1,0 +1,15 @@
+import re
+def backward_string_by_word(text: str) -> str:
+    # your code here
+    words = text.split()
+    space = re.findall('\s+', text)
+    rtext = ""
+    index = 0
+    for word in words:
+        rword = ''.join(reversed(word))
+        rtext += rword
+        if index != len(space):
+            rtext += space[index]
+            index += 1
+    
+    return rtext
