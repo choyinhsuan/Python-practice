@@ -1,0 +1,9 @@
+def missing_number(items: list[int]) -> int:
+    # your code here
+    items = sorted(items)
+    diff = int((items[len(items)-1]-items[0])/len(items))
+    ans = None
+    for i in range(1, len(items)):
+        if items[i]-items[i-1] != diff:
+            ans = items[i]-diff
+    return ans
