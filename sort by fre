@@ -1,0 +1,4 @@
+def frequency_sort(items: list[str | int]) -> Iterable[str | int]:
+    # your code here
+    new = sorted(items, key = lambda x: (items.count(x), -items.index(x)), reverse = True)
+    return new
