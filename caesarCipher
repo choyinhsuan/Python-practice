@@ -1,0 +1,19 @@
+def caesarCipher(s, k):
+    # Write your code here
+    news = ""
+    k %= 26
+    for a in s:
+        if a.isalpha():
+            num = ord(a)+k
+            if (a.isupper()):
+                if num > (ord('Z')):
+                    num -= 26
+            else:
+                if num > (ord('z')):
+                    num -= 26
+            newa = chr(num)
+        else:
+            newa = a
+        news += newa
+    
+    return news
