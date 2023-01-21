@@ -1,0 +1,17 @@
+def dynamicArray(n, queries):
+    # Write your code here
+    last = 0
+    arr = [[]for i in range(n)]
+    ans = []
+    for q in queries:
+        if q[0] == 1:
+            idx = ((q[1]^last)%n)
+            try:
+                arr[idx].append(q[2])
+            except:
+                print('wrong')
+        else:
+            idx = ((q[1]^last)%n)
+            last = arr[idx][q[2]%len(arr[idx])]
+            ans.append(last)
+    return ans
