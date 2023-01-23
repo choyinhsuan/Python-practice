@@ -1,0 +1,10 @@
+def superDigit(n, k):
+    # Write your code here
+    n = str(n)
+    digits = sum(int(x) for x in n)
+    digits = digits*k
+    
+    if digits < 10:
+        return digits
+    else:
+        return superDigit(digits, 1)
