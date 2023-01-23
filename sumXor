@@ -1,0 +1,11 @@
+def sumXor(n):
+    # Write your code here
+    digit = format(n, "b")
+    length = len(digit)
+    zeros = 0
+    for i in range(length):
+        if digit[i] == '0':
+            zeros += 1
+    if n == 0:
+        zeros = 0
+    return 2**zeros
