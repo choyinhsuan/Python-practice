@@ -1,0 +1,12 @@
+def words_order(text: str, words: list) -> bool:
+    pre = -1
+    texts = text.split()
+    for word in words:
+        try:
+            cur = texts.index(word)
+        except:
+            return False
+        if cur <= pre:
+            return False
+        pre = cur
+    return True
