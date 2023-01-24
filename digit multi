@@ -1,0 +1,9 @@
+def checkio(number: int) -> int:
+    # your code here
+    text = str(number)
+    ans = 1
+    for char in text:
+        num = int(char)
+        if num != 0:
+            ans *= num
+    return ans
