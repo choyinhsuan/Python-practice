@@ -1,0 +1,47 @@
+import numpy as np
+import matplotlib.pyplot as plt
+from utils import *
+import copy
+import math
+%matplotlib inline
+
+# load the dataset
+x_train, y_train = load_data()
+
+def compute_cost(x, y, w, b): 
+    
+    # number of training examples
+    m = x.shape[0] 
+    
+    # You need to return this variable correctly
+    total_cost = 0
+    
+    ### START CODE HERE ### 
+    cost = 0
+    for i in range(m):
+        f_wb = w*x[i]+b
+        cost += (f_wb-y[i])**2
+    ### END CODE HERE ### 
+    total_cost = (1/(2*m))*cost
+    return total_cost
+    
+def compute_gradient(x, y, w, b): 
+    
+    # Number of training examples
+    m = x.shape[0]
+    
+    # You need to return the following variables correctly
+    dj_dw = 0
+    dj_db = 0
+    
+    ### START CODE HERE ### 
+    for i in range(m):
+        f_wb = w*x[i]+b
+        tmpw = (f_wb-y[i])*x[i]
+        tmpb = (f_wb-y[i])
+        dj_dw += tmpw
+        dj_db += tmpb
+    ### END CODE HERE ### 
+    dj_dw /= m
+    dj_db /= m
+    return dj_dw, dj_db
