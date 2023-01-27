@@ -1,0 +1,31 @@
+import numpy as np
+import matplotlib.pyplot as plt
+from utils import *
+import copy
+import math
+
+%matplotlib inline
+
+# load dataset
+X_train, y_train = load_data("data/ex2data1.txt")
+
+def sigmoid(z):
+
+    g = 1/(1+np.exp(-z))
+    
+    return g
+    
+def compute_cost(X, y, w, b, lambda_= 1):
+    
+    m, n = X.shape
+    
+    ### START CODE HERE ###
+    loss_sum = 0
+    for i in range(m):
+        z_wb = np.dot(X[i], w) + b
+        f_wb = sigmoid(z_wb)
+        loss_sum += -y[i]*np.log(f_wb)-(1-y[i])*np.log(1-f_wb)
+    total_cost = loss_sum/m
+    ### END CODE HERE ### 
+
+    return total_cost
