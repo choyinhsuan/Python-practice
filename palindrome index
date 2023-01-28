@@ -1,0 +1,16 @@
+def palindromeIndex(s):
+    # Write your code here
+    r_s = s[::-1]
+    if r_s == s:
+        return -1
+    index = 0
+    length = len(s)-1
+    ans = 0
+    while(length-index>=index):
+        if s[length-index] != s[index]:
+            tmp = s[0:index]+s[index+1:length+1]
+            if tmp[::-1]==tmp:
+                return index
+            else:
+                return length-index
+        index += 1
