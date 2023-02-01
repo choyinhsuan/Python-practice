@@ -1,0 +1,11 @@
+from datetime import datetime
+from typing import List
+
+
+def sum_light(els: List[datetime]) -> int:
+    val = 0
+    for i in range(0, len(els), 2):
+        d1 = els[i]
+        d2 = els[i+1]
+        val += (d2-d1).total_seconds()
+    return val
