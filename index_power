@@ -1,0 +1,7 @@
+def index_power(array: list[int], n: int) -> int:
+    # your code here
+    if n >= len(array):return -1
+    x = array[n]
+    x = x**n
+    
+    return x
