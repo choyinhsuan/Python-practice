@@ -1,0 +1,13 @@
+def final_stone(stones: list[int]) -> int:
+    # your code here
+    
+    while(len(stones)>1):
+        stones.sort(reverse = True)
+        print(stones)
+        diff = stones[0]-stones[1]
+        stones = stones[2:len(stones)]
+        stones.append(diff)
+        print(stones)
+    if len(stones) == 0:
+        return 0
+    return stones[0]
