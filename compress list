@@ -1,0 +1,8 @@
+def compress(items: list[int]) -> Iterable[int]:
+    # your code here
+    ans = []
+    items = [-1]+items
+    for i in range(len(items)-1):
+        if items[i+1]!=items[i]:
+            ans.append(items[i+1])
+    return ans
