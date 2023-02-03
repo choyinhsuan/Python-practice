@@ -1,0 +1,13 @@
+def reverse_ascending(items):
+     items.append(0)
+     temp=[]
+     result=[]
+     for i in range(len(items)-1):
+          if items[i]<items[i+1]:
+               temp.append(items[i])
+          else:
+               temp.append(items[i])
+               result=result+temp[::-1]
+               temp=[]
+             
+     return result
