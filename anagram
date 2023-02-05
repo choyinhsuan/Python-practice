@@ -1,0 +1,24 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+
+def anagram(s):
+    # Write your code here
+    s1 = s[:int(len(s)/2)]
+    s2 = s[int(len(s)/2):]
+    
+    chars = list(set(s2))
+    if len(s)%2 != 0:
+        return -1
+    ans = 0
+    for char in chars:
+        tmp = s2.count(char)-s1.count(char)
+        if tmp > 0:
+            ans += tmp
+    return ans
+

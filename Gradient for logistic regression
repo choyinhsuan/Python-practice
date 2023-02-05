@@ -1,0 +1,39 @@
+import numpy as np
+import matplotlib.pyplot as plt
+from utils import *
+import copy
+import math
+
+%matplotlib inline
+
+# load dataset
+X_train, y_train = load_data("data/ex2data1.txt")
+
+def sigmoid(z):
+
+    g = 1/(1+np.exp(-z))
+    
+    return g
+    
+def compute_gradient(X, y, w, b, lambda_=None): 
+    
+    m, n = X.shape
+    dj_dw = np.zeros(w.shape)
+    dj_db = 0.
+
+    ### START CODE HERE ### 
+    for i in range(m):
+        z_wb = np.dot(X[i], w) + b
+        f_wb = sigmoid(z_wb)
+        
+        dj_db += (f_wb-y[i])
+        
+        for j in range(n):
+            dj_dw[j] += (f_wb-y[i])*X[i][j]
+            
+    dj_dw /= m
+    dj_db /= m
+    ### END CODE HERE ###
+
+        
+    return dj_db, dj_dw

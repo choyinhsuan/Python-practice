@@ -1,0 +1,51 @@
+import numpy as np
+import matplotlib.pyplot as plt
+from utils import *
+import copy
+import math
+
+%matplotlib inline
+
+def sigmoid(z):
+
+    ### START CODE HERE ### 
+    g = 1/(1+np.exp(-z))
+    ### END SOLUTION ###  
+    
+    return g
+
+def compute_gradient(X, y, w, b, lambda_=None): 
+   
+    m, n = X.shape
+    dj_dw = np.zeros(w.shape)
+    dj_db = 0.
+
+    ### START CODE HERE ### 
+    for i in range(m):
+        z_wb = np.dot(X[i], w) + b
+        f_wb = sigmoid(z_wb)
+        
+        dj_db += (f_wb-y[i])
+        
+        for j in range(n):
+            dj_dw[j] += (f_wb-y[i])*X[i][j]
+            
+    dj_dw /= m
+    dj_db /= m
+    ### END CODE HERE ###
+    return dj_db, dj_dw
+    
+def compute_gradient_reg(X, y, w, b, lambda_ = 1): 
+    
+    m, n = X.shape
+    
+    dj_db, dj_dw = compute_gradient(X, y, w, b)
+
+    ### START CODE HERE ###  
+    dj_dw_reg = 0
+    for j in range(n):
+        dj_dw[j] += (lambda_/m)*w[j]
+        
+    ### END CODE HERE ###         
+        
+    return dj_db, dj_dw

@@ -1,0 +1,13 @@
+from typing import Union
+
+
+def sun_angle(time: str) -> Union[float, str]:
+    # replace this for solution
+    h = int(time[0:2])*60
+    m = int(time[3:5])
+    t = h+m
+    t -= 360
+    angle = 180*(t/720)
+    if angle > 180:
+        return "I don't see the sun!"
+    return angle

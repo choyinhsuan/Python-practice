@@ -1,0 +1,9 @@
+def sort_key(file: str):
+    name, _,extension = file.rpartition(".")
+    if name:
+        return (extension, name)
+    else:
+        return ("",extension)
+
+def sort_by_ext(files: list[str]) -> list[str]:
+    return sorted(files, key = sort_key)

@@ -1,0 +1,10 @@
+def most_frequent(data: list[str]) -> str:
+    # your code here
+    dic = dict()
+    for item in data:
+        dic[item] = dic.get(item, 0)+1
+    return max(dic, key=dic.get)
+
+
+data = input()
+print(most_frequent(data))

@@ -1,0 +1,5 @@
+def is_majority(items: list[bool]) -> bool:
+    # your code here
+    true = items.count(True)
+    false = len(items)-true
+    return true>false

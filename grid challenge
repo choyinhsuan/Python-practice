@@ -1,0 +1,16 @@
+def gridChallenge(grid):
+    # Write your code here
+    new_grid = list()
+    
+    for element in grid:
+        tmp = list(element)
+        tmp.sort()
+        new_grid.append(str(tmp))
+    size = len(new_grid[0])
+    past = new_grid[0]
+    for element in new_grid:
+        for i in range(size):
+            if element[i]<past[i]:
+                return "NO"
+        past = element
+    return "YES"

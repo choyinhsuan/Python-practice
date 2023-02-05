@@ -1,0 +1,15 @@
+def changing_direction(elements: list[int]) -> int:
+    # your code here
+    state = 0
+    pre = state
+    point = 0
+    for i in range(len(elements)-1):
+        if elements[i+1]>elements[i]:
+            state = 1
+        elif elements[i+1]<elements[i]:
+            state = -1
+        if abs(state-pre) == 2:
+            point = point+1
+        pre = state
+        
+    return point

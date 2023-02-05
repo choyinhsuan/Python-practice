@@ -1,0 +1,20 @@
+OPERATION_NAMES = (
+    "conjunction",
+    "disjunction",
+    "implication",
+    "exclusive",
+    "equivalence",
+)
+
+
+def boolean(x: bool, y: bool, operation: str) -> bool:
+    if operation == "conjunction":
+        return x and y
+    elif operation == "disjunction":
+        return x or y
+    elif operation == "implication":
+        return not x or y
+    elif operation == "exclusive":
+        return x != y
+    else:
+        return x == y

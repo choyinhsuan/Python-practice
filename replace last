@@ -1,0 +1,5 @@
+def replace_last(line: list) -> Iterable:
+    # your code here
+    tmp = line.pop()
+    line.insert(0, tmp)
+    return line

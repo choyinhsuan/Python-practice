@@ -1,0 +1,11 @@
+def pageCount(n, p):
+    # Write your code here
+    if n-p > p-1:
+        tmp = p-1
+        tmp += 1
+    else:
+        tmp = n-p
+        if n-p == 1 and n%2 == 0:
+            tmp += 1
+    ans = int(tmp/2)
+    return ans
