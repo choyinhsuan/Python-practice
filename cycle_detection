@@ -1,0 +1,12 @@
+def has_cycle(head):
+    if head == None:
+        return False
+    one = head
+    two = head.next
+    while two.next != None and two.next.next != None:
+        if one == two:
+            return True
+        one = one.next
+        two = two.next.next
+    
+    return False
