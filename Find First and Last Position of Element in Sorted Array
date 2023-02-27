@@ -1,0 +1,12 @@
+class Solution:
+    def searchRange(self, nums: List[int], target: int) -> List[int]:
+        try:
+            begin = nums.index(target)
+        except:
+            return [-1, -1]
+        
+        
+        tmp = sorted(nums,reverse=True).index(target)
+        end = len(nums)-tmp-1
+        ans = [begin, end]
+        return ans
