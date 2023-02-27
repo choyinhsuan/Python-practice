@@ -1,0 +1,16 @@
+class Solution:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        ans = []
+        store = {}
+        for string in strs:
+            tmp = sorted(string)
+            tmp = "".join(tmp)
+            try:
+                store[tmp].append(string)
+            except:
+                store[tmp] = [string]
+            
+        
+        for item in store:
+            ans.append(store[item])
+        return ans
