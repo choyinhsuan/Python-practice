@@ -1,0 +1,12 @@
+class Solution(object):
+    def reverse(self, x):
+        """
+        :type x: int
+        :rtype: int
+        """
+        tmp = str(abs(x))
+        reverse = ''.join(reversed(tmp))
+        ans = int(reverse)
+        if x<0:
+            ans *= -1
+        return ans if -2**31<=ans<2**31 else 0
