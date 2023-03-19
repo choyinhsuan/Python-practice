@@ -1,0 +1,25 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+
+def gradingStudents(grades):
+    # Write your code here
+    length = len(grades)
+    ans = []
+    for i in range(length):
+        if grades[i] >= 38:
+            count = int(grades[i]/5)
+            tmp = (count+1)*5
+            if tmp-3<grades[i]:
+                ans.append(int(tmp))
+            else:
+                ans.append(grades[i])
+        else:
+            ans.append(grades[i])
+    return ans
+
