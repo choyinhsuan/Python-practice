@@ -1,0 +1,17 @@
+def plusMinus(arr):
+    # Write your code here
+    positive = 0
+    negtive = 0
+    zeros = 0
+    n = len(arr)
+    for i in arr:
+        if i<0:
+            negtive += 1
+        elif i>0:
+            positive += 1
+        else:
+            zeros += 1
+
+    print(round(positive/n, 6))
+    print(round(negtive/n, 6))
+    print(round(zeros/n, 6))
