@@ -1,0 +1,12 @@
+def timeConversion(s):
+    # Write your code here
+    hour = int(s[0:2])
+    if s[8] == 'P' and hour != 12:
+        hour += 12
+    elif s[8] == 'A' and hour == 12:
+        hour -= 12
+    if hour<10:
+        ans = '0'+str(hour)+s[2:8]
+    else:
+        ans = str(hour)+s[2:8]
+    return ans
