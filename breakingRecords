@@ -1,0 +1,13 @@
+def breakingRecords(scores):
+    # Write your code here
+    mina = scores[0]
+    maxa = scores[0]
+    times = [0,0]
+    for score in scores:
+        if score > maxa:
+            times[0] +=1
+            maxa = score
+        if score < mina:
+            times[1] +=1
+            mina = score
+    return times
