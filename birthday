@@ -4,15 +4,12 @@ def birthday(s, d, m):
     count = 0
     for i in range(m):
         count += s[i]
-    length = len(s)-m
-    if length <= 0:
-        if length == 0 and s[0] == d:
-            return(1)
-        else:
-            return(0)
+    length = len(s)-m+1
+
     for index in range(length):
         if count == d:
             ans += 1
         count -= s[index]
-        count += s[index+m]
+        if index+m != len(s):
+            count += s[index+m]
     return(ans)
