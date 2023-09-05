@@ -1,0 +1,7 @@
+n, l = map(int,input().split())
+count = map(int, input(),split())
+array = [l, count[i]-l]
+for i in range(1, n-1):
+  array.append(count[i]-array[i]-array[i-1])
+ans = " ".join(str(i) for i in array)
+print(ans)
