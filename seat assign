@@ -1,0 +1,17 @@
+n, h, w, p, q = map(int,input().split())
+seat = [[0 for _ in range(w)] for _ in range(h)]
+for i in range(n):
+    s, t = map(int,input().split())
+    seat[s][t] = 1000
+
+for i in range(h):
+    for j in range(w):
+        if seat[i][j] == 0:
+            seat[i][j] = abs(i-p)+abs(j-q)
+#print(seat)
+            
+mindis = min(min(row) for row in seat)
+for i in range(h):
+    for j in range(w):
+        if seat[i][j] == mindis:
+            print(str(i),str(j))
