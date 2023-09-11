@@ -1,0 +1,8 @@
+def migratoryBirds(arr):
+    # Write your code here
+    max_num = max(arr)
+    count = [0 for i in range(max_num+1)]
+    for i in range(1,max_num+1):
+        count[i] = arr.count(i)
+    max_fre = max(count)
+    return str(count.index(max_fre))
