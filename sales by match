@@ -1,0 +1,11 @@
+def sockMerchant(n, ar):
+    # Write your code here
+    ar.sort()
+    count = 0
+    ans = 0
+    i = 0
+    while i < n:
+        count = ar.count(ar[i])
+        ans += int(count/2)
+        i += count
+    return ans
