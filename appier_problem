@@ -1,0 +1,15 @@
+from collections import defaultdict
+import re
+
+def MostFreqWord(text: str)->str:
+    keychar = ['a','p','i','e','r']
+    dic = defaultdict(int)
+    words = re.split(r'[^a-zA-Z]', text)
+    for word in words:
+        if dic[word] != -1:
+            if any([c in word and c for c in keychar]):
+                dic[word] += 1
+            else:
+                dic[word] = -1
+    ans = (sorted(dic.items(), key=lambda item:item[1], reverse=True))[0][0]
+    return ans
